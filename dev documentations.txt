@@ -48,11 +48,9 @@ On project, leave the user management and ask the guide for the same
 - Do completely remove user management --clear
 - Do manual editor integration --clear 
 - unsplash add --clear 
+- host the web app on github --in-progress
 
 - Do UI change
-
-
-- host the web app on github
 
 - Start the paper works (also can log paper work related documentations 
   and Todos here)
