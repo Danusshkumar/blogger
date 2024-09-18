@@ -9,7 +9,6 @@ import 'antd/dist/antd.css';
 
 import './App.css';
 
-// import { GeneralHeader as Header } from './components/header/TheHeader';
 
 import ArticleListPage from './containers/ArticleListContainer';
 import ArticleDraftListPage from './containers/ArticleDraftListContainer';
@@ -52,13 +51,16 @@ const AppRouter = () => (
       className="switch-wrapper"
     >
       {/*<Route exact path={'/'} component={ArticleEditPage}/>*/}
-      <Route exact path={'/'} component={ArticleListPage}/>
+      {/**/}
+      <Route exact path={'/'} component={ArticleEditPage}/>
       <Route path={'/articles'} component={ArticleListPage}/>
       <Route path={'/article/:articleID/read/'} component={ArticleReadPage}/>
       <Route path={'/article/new/'} component={ArticleEditPage}/>
       <Route path={'/article/:articleID/edit/'} component={ArticleEditPage}/>
       <Route path={'/drafts'} component={ArticleDraftListPage}/>
       <Route path={'/draft/:articleID/edit/'} component={ArticleEditPage}/>
+      {/* */}
+
       {/*<Route path={'/user'} component={UserPage}/>*/}
       <Route component={NoMatchPage}/>
     </AnimatedSwitch>

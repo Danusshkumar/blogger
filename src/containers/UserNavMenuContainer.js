@@ -24,6 +24,3 @@ export default withRouter(connect(
   mapState,
   mapDispatch
 )(UserNavMenu));
-
-
-

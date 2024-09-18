@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 // import reducer
 import reducer from "../reducer";
 
-function configureStore(preLoadedState) {
+function configureStore(preLoadedState)    {
   // middleware
   const middleware = [ thunk ];
 

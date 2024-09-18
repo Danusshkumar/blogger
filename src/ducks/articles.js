@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { db, createDoc, removeDoc, updateDoc, getDocsByType, loadArticles } from "../api/pouchdb";
+import { db, createDoc, removeDoc, updateDoc, getDocsByType, loadArticles } from "../api/firebase";
 
 const FETCH_ARTICLES_REQUEST = 'write-down/articles/FETCH_ARTICLES_REQUEST';
 
@@ -43,8 +43,8 @@ const fetchArticles = () => async (dispatch) => {
   try {
     res = await loadArticles();
 
-    if (typeof res === "object" && 'docs' in res && res.docs.length !== 0) {
-      dispatch(fetchArticlesSuccess(res.docs));
+    if (typeof res === "object" && res.length !== 0) {
+      dispatch(fetchArticlesSuccess(res));
       dispatch(fetchArticleStatusReset())
     } else {
       dispatch(fetchArticlesFailure('No articles in database.'));
@@ -62,7 +62,11 @@ const generateNewArticle = () => (
     title: 'Title',
     excerpt: 'Here is the excerpt.',
     tags: [],
-    cover: {},
+    cover: {
+      authorName : "",
+      authorLink : "",
+      url : ""
+    },
     author: 'Author',
     markdown: '',
     htmlOutput: '',
@@ -122,11 +126,10 @@ const createArticle = () => async (dispatch) => {
 
     if (typeof doc !== 'undefined') {
       const data = await getDocsByType(db, 'article');
-
-      if (typeof data === "object" && 'docs' in data && data.docs.length !== 0) {
+      if (typeof data === "object" && data.length !== 0) {
         // Store all the articles after creating a new article.
         // Store the article id for the state.currentEdit to use.
-        dispatch(createArticleSuccess(doc.id, data.docs));
+        dispatch(createArticleSuccess(doc.id, data));
       }
     } else {
       dispatch(createArticleFailure('It is failed to create article.'))
@@ -190,11 +193,11 @@ const updateArticle = (id, updatedData, updatedPart) => async (dispatch) => {
   let res = undefined;
 
   try {
-    await updateDoc(db, 'article_' + id, updatedData);
+    await updateDoc(db, id, updatedData);
     res = await getDocsByType(db, 'article');
 
-    if (typeof res === "object" && 'docs' in res && res.docs.length !== 0) {
-      dispatch(updateArticleSuccess(res.docs, updatedPart));
+    if (typeof res === "object" && res.length !== 0) {
+      dispatch(updateArticleSuccess(res, updatedPart));
     } else {
       dispatch(updateArticleFailure('It is failed to update article_' + id));
     }
@@ -245,11 +248,11 @@ const removeArticle = (id) => async (dispatch) => {
   let res = undefined;
 
   try {
-    await removeDoc(db, 'article_' + id);
+    await removeDoc(db, id);
     res = await getDocsByType(db, 'article');
 
-    if (typeof res === "object" && 'docs' in res) {
-      dispatch(removeArticleSuccess(res.docs));
+    if (typeof res === "object") {
+      dispatch(removeArticleSuccess(res));
     } else {
       dispatch(removeArticleFailure('It is failed to remove article_' + id));
     }

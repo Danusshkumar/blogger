@@ -1,12 +1,9 @@
-import Unsplash, { toJson }  from 'unsplash-js';
+import { createApi }  from 'unsplash-js';
 
-const unsplash = new Unsplash({
-  applicationId: "{APP_ACCESS_KEY}",
-  secret: "{APP_SECRET}",
-  callbackUrl: "{CALLBACK_URL}"
+const unsplash = createApi({
+  accessKey: 'zp5Xh33wxMPLP1LkXgskWqnV32ER9aALWlXty2GegrI'
 });
 
 export {
-  unsplash,
-  toJson
+  unsplash
 };

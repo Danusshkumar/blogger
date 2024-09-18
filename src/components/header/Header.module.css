@@ -1,3 +1,111 @@
+.magicButton {
+  position: relative;
+  background-color: #6a0dad; /* Deep purple background */
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between icon and text */
+}
+
+.magicButton:hover {
+  background-color: #9b30ff; /* Lighter purple on hover */
+  box-shadow: 0 0 25px rgba(106, 13, 173, 0.7);
+  /* transform: translateY(-3px) scale(1.05); */
+}
+
+/* Magic sparkles */
+.sparkles {
+  position: absolute;
+  width: 8px; /* Smaller size for star effect */
+  height: 8px;
+  background-color: white;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  ); /* Star shape */
+  opacity: 0;
+  animation: sparkle 1.2s infinite; /* Faster animation for more dynamic effect */
+  filter: drop-shadow(0 0 3px white);
+}
+
+.sparkles:nth-child(1) {
+  top: 15%;
+  left: 15%;
+  animation-delay: 0.1s;
+}
+
+.sparkles:nth-child(2) {
+  top: 40%;
+  left: 70%;
+  animation-delay: 0.3s;
+}
+
+.sparkles:nth-child(3) {
+  top: 60%;
+  left: 30%;
+  animation-delay: 0.5s;
+}
+
+.sparkles:nth-child(4) {
+  top: 80%;
+  left: 55%;
+  animation-delay: 0.7s;
+}
+
+.sparkles:nth-child(5) {
+  top: 20%;
+  left: 80%;
+  animation-delay: 0.9s;
+}
+
+.buttonText {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon styling */
+.icon {
+  position: relative;
+  z-index: 2;
+  font-size: 1.4rem; /* Slightly larger for visibility */
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5); /* Larger expansion for star-like effect */
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/*
+AI button style ends here
+*/
+
 :global(.ant-popover-title) {
   text-align: center;
 }

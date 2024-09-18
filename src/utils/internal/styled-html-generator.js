@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 
 import MarkdownParser from "../external/markdown-parser";
 
-// 移除了antd相关的代码，不使用css-modules
+// css-modules
 const ArticleRead = (props) => {
   const { title, author, cover, excerpt, markdown, postedAt } = props;
 
@@ -298,11 +298,11 @@ const articleStyle = `
 `;
 
 /**
- * generateStyledHTML() 生成带有样式的 html 文件字符串，供 exportFile() 使用
+ * generateStyledHTML()  html  exportFile() 
  *
- * @param {Object} data  生成 html 文件的数据，跟 <ArticleReadPage/> 需要的数据几乎相同
+ * @param {Object} data   html  <ArticleReadPage/>
  *
- * @return {String} html 文件的字符串
+ * @return {String} html 
  */
 
 const generateStyledHTML = (data) =>

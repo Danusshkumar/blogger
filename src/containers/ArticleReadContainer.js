@@ -8,6 +8,7 @@ const mapState = (state, ownProps) => {
 
   const selectedArticle = state.articles.data.find(article => article.id === articleID);
 
+
   const { title, author, excerpt, cover, markdown, postedAt, updatedAt } = selectedArticle;
 
   return {

@@ -11,13 +11,13 @@
 }
 
 .readPageContainer {
-  width: calc(100vw - 12px);
-  margin: 20px auto 100px;
+  width: 80%;
+  margin: 20px auto 50px;
 }
 
 .readPageContent {
   composes: textSize;
-  width: 700px;
+  width: 80%;
   background-color: #fff;
 }
 

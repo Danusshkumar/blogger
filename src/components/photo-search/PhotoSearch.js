@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import PhotoSearchBar from './PhotoSearchBar';
 import PhotoSearchResult from './PhotoSearchResult';
 
-import { unsplash, toJson } from '../../utils';
+import { unsplash } from '../../utils';
 
 class PhotoSearch extends Component {
   constructor(props) {
@@ -36,14 +36,26 @@ class PhotoSearch extends Component {
   };
 
   doSearch = (keyword, currentPage) => {
-    unsplash.search.photos(keyword, currentPage, this.pageSize)
-      .then(toJson)
-      .then(searchResult => {
-        this.setState({
-          dataResult: searchResult
-        });
+    unsplash.search
+      .getPhotos(
+        { query: keyword, page: currentPage, perPage: this.pageSize }, 
+        { headers: { 'X-Custom-Header': 'foo' } } // Optional, add if needed
+      )
+      .then(result => {
+        if (result.type === 'success') {
+          console.log('Search Results:', result.response.results); // Handle successful search response
+          this.setState({
+            dataResult: result.response.results
+          });
+        } else {
+          console.error('Search Errors:', result.errors); // Handle errors
+        }
+      })
+      .catch(error => {
+        console.error('Search Error:', error); // Handle any other errors
       });
-  };
+  };  
+  
 
   SelectPhoto = (photoData) => {
     this.props.selectCover(photoData);
@@ -74,4 +86,3 @@ class PhotoSearch extends Component {
 }
 
 export default PhotoSearch;
-

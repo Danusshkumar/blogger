@@ -24,11 +24,9 @@ const mapDispatch = {
   removeArticleStatusReset
 };
 
-
 export default connect(
   mapState,
   mapDispatch
 )(DraftList);
-
 
 

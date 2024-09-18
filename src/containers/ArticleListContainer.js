@@ -8,15 +8,15 @@ const selectThePublishedArticles = (list = []) => {
   return list.filter((article) => article.isPublished === true);
 };
 
-const mapState = (state) => (
-  {
+const mapState = (state) => {
+  return {
     articles: selectThePublishedArticles(state.articles.data),
     isFetching: state.articles.isFetching,
     isLoggedIn: state.user.isLoggedIn,
     isRemovingFinished: state.articles.isRemovingFinished,
     error: state.articles.error
   }
-);
+};
 
 const mapDispatch = {
   selectArticle,

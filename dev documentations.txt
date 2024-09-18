@@ -1,0 +1,59 @@
+Article schema:
+
+{
+  "id": "0",
+  "rev": "1-5b5ef78302fe3bde3deb9673ee8e209d",
+  "title": "Full Feature Example",
+  "excerpt": "This is the full feature example. You can see all markdown feature supported and experience all features in Write Down with this example. Have fun!!",
+  "author": "Neven",
+  "cover" : {
+      "authorName": "jonathan riley",
+      "authorLink": "https://unsplash.com/@jonathan_christian_photography",
+      "url": "https://images.unsplash.com/photo-1470219556762-1771e7f9427d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjQxMzU5fQ",
+  }
+  "isPublished": true,
+  "markdown": "# h1 Heading ...",
+  "htmlOutput": "",
+  "tags": ["example", "all feature", "have fun"],
+  "postedAt": "2019-01-17T08:16:01.296Z",
+  "updatedAt": "2019-01-06T18:16:01.296Z"
+}
+
+
+currently working for article creation:
+
+firebase.js 
+article.js
+user.js touched ==> removed some unused imports
+
+manually written:
+
+    // After the updateDoc() failed, it needs to be created first.
+    res = {
+      username : "test",
+      password : "123456"
+    };
+
+on two places on user.js whereas it createsDoc on serverside using await createDoc();
+
+
+touching: configureStore.dev.js
+touching: app.js
+
+Todos:
+
+On project, leave the user management and ask the guide for the same
+
+- integrate the spl feature --clear
+- Do completely remove user management --clear
+- Do manual editor integration --clear 
+- unsplash add --clear 
+
+- Do UI change
+
+
+- host the web app on github
+
+- Start the paper works (also can log paper work related documentations 
+  and Todos here)
+

@@ -8,7 +8,7 @@ import ScrollToTop from './internal/ScrollToTop';
 
 // external
 import MarkdownParser from './external/markdown-parser';
-import { unsplash, toJson } from "./external/unsplash-service";
+import { unsplash } from "./external/unsplash-service";
 
 export {
   checkImageUrlIsValid,
@@ -18,6 +18,5 @@ export {
   generateTimeString,
   MarkdownParser,
   ScrollToTop,
-  toJson,
   unsplash
 }

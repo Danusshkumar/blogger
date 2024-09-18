@@ -1,7 +1,7 @@
 /**
- * checkImageUrlIsValid() 检查url是否是合法的
+ * checkImageUrlIsValid() 
  *
- * @param url  图片的url地址
+ * @param url  
  * @return {Promise<any>}
  */
 function checkImageUrlIsValid(url) {

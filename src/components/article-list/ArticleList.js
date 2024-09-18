@@ -11,6 +11,7 @@ import styles from "./ArticleList.module.css";
 
 dayjs.extend(relativeTime);
 
+
 const ArticlesPage = ({ articles, error, isFetching, isLoggedIn, isRemovingFinished, selectArticle, removeArticle, removeArticleStatusReset }) => {
   let ArticleList = undefined;
 
@@ -26,6 +27,7 @@ const ArticlesPage = ({ articles, error, isFetching, isLoggedIn, isRemovingFinis
     ));
   }
 
+
   const SpinIndicator = (
     <Icon type='loading' className={styles.spinIndicator}/>
   );
@@ -36,6 +38,7 @@ const ArticlesPage = ({ articles, error, isFetching, isLoggedIn, isRemovingFinis
     message.success('The article has been deleted.');
     removeArticleStatusReset();
   }
+
 
   return (
     <div className={styles.pageContainer}>

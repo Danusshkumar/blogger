@@ -16,12 +16,16 @@ class PhotoSearchResult extends Component {
   };
 
   render() {
-    const total = this.props.data.total;
-    const results = this.props.data.results;
+    const total = this.props.data.length;
+    const results = this.props.data;
 
     let PhotoItems;
 
-    if (typeof total === 'undefined') {
+    console.log("Unsplash result");
+    console.log(this.props.data);
+    console.log(total);
+    console.log(results);
+    if (typeof results === 'undefined') {
       return null;
     } else if (total === 0) {
       return (
@@ -83,7 +87,7 @@ const Photo = ({ photo, onPhotoSelect }) => {
   const username = photo.user.name;
   const userLink = photo.user.links.html;
 
-  const onClick = () => {
+  const onClick = async () => {
     const photoInfoForStorage = {
       photoUrl: regularUrl,
       photoAuthorName: username,
@@ -93,7 +97,19 @@ const Photo = ({ photo, onPhotoSelect }) => {
     onPhotoSelect(photoInfoForStorage);
 
     // To trigger a download in unsplash statics.
-    unsplash.photos.downloadPhoto(photo);
+    //unsplash.photos.downloadPhoto(photo);
+    try {
+      // Fetch the download location to trigger the download count.
+      const downloadLink = photo.links.download_location;
+      await fetch(downloadLink, {
+        method: 'GET',
+        headers: {
+          Authorization: `Client-ID YOUR_ACCESS_KEY`  // Use your Unsplash access key here
+        }
+      });
+    } catch (error) {
+      console.error("Error triggering Unsplash download:", error);
+    }
   };
 
   return (

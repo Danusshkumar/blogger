@@ -12,7 +12,6 @@ const mapState = (state) => {
 
   if (selectedArticle && Object.keys(selectedArticle).length !== 0) {
     const { id, title, excerpt, tags, author, cover } = selectedArticle;
-
     return {
       id,
       title,

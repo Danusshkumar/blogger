@@ -75,11 +75,9 @@ class ArticleInfoForm extends Component {
         });
 
         // It is failed to pass the validation, the submit button will be disable.
-        // 告知 form 校验失败，不能提交表单
         cb(error);
       }
     } else {
-      // 将cover相关的数据重置
       this.setState({
         cover: {
           url: '',
@@ -93,7 +91,6 @@ class ArticleInfoForm extends Component {
     }
 
     // If no error, pass the validation, call cb() to finish the validation
-    // 校验通过，总是要调用 cb()，告知 validator 完成校验
     // https://github.com/ant-design/ant-design/issues/5155
     cb();
   };
@@ -101,13 +98,11 @@ class ArticleInfoForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const data = this.props.form.getFieldsValue();
-    // 这里只需要使用data提交表单的数据即可
     // console.log(data);
 
     const { id, updateArticle } = this.props;
     const { title, excerpt, tags, author, coverUrl } = data;
 
-    // 将authorName，authorLink都保存起来
     const cover = {
       ...this.state.cover,
       url: coverUrl

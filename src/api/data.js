@@ -4,7 +4,7 @@ let data = [
   {
     id: '0',
     title: 'Full Feature Example',
-    author: 'Neven',
+    author: 'Danusshkumar',
     excerpt: 'This is the full feature example. You can see all markdown feature supported and experience all features in Write Down with this example. Have fun!!',
     cover: {
       url: 'https://images.unsplash.com/photo-1470219556762-1771e7f9427d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjQxMzU5fQ',

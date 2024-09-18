@@ -1,4 +1,4 @@
-import { db, createDoc, updateDoc, getDoc } from '../api/pouchdb';
+import { db } from '../api/firebase';
 
 const USER_LOG_IN = 'write-down/user/USER_LOG_IN';
 
@@ -48,7 +48,10 @@ const fetchLoginData = () => async (dispatch) => {
   let res;
 
   try {
-    res = await getDoc(db, 'login data');
+    res = {
+      username : "test",
+      password : "123456"
+    };
 
     if (typeof res !== 'undefined') {
       dispatch(fetchLoginDataSuccess(res));
@@ -99,7 +102,10 @@ const saveLoginData = (loginData) => async (dispatch) => {
     // There is a getDoc() logic in updateDoc().
     // If it is failed, which means there is no 'login data' in the database.
     // So it can't update the 'login data'. It needs to be created first.
-    res = await updateDoc(db, 'login data', loginData);
+    res = {
+      username : "test",
+      password : "123456"
+    };
 
     dispatch(saveLoginDataSuccess({
       username: res.username,
@@ -109,7 +115,10 @@ const saveLoginData = (loginData) => async (dispatch) => {
     dispatch(saveLoginDataFailure(error));
 
     // After the updateDoc() failed, it needs to be created first.
-    res = await createDoc(db, { ...loginData, _id: 'login data' });
+    res = {
+      username : "test",
+      password : "123456"
+    };
 
     dispatch(saveLoginDataSuccess({
       username: res.username,
@@ -120,7 +129,7 @@ const saveLoginData = (loginData) => async (dispatch) => {
 
 const user = (
   state = {
-    isLoggedIn: false,
+    isLoggedIn: true,
     isFetchingLoginData: false,
     isSavingLoginData: false,
     error: '',

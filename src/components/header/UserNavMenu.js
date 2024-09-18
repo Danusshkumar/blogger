@@ -45,15 +45,9 @@ const UserNavMenu = (props) => {
               <Menu.Item key="3">
                 <Link to={'/articles'}>My Articles</Link>
               </Menu.Item>
-              <Menu.Divider/>
               {/*<Menu.Item key="4">*/}
               {/*<Link to={'/user'}>User Profile</Link>*/}
               {/*</Menu.Item>*/}
-              <Menu.Item key="5">
-                <button className={styles.navMenuOption} onClick={handleLogout}>
-                  Log out
-                </button>
-              </Menu.Item>
             </Menu>
           ) : (
             <Menu {...rest}>

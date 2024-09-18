@@ -1,0 +1,54 @@
+.customModal .ant-modal-content {
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px; /* Add padding for better layout */
+    background: rgba(255, 255, 255, 0.8); /* Glassmorphic effect */
+    backdrop-filter: blur(10px); /* Blurring effect for glassmorphic style */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    height: 100%;
+  }
+  
+  .uploadContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%; /* Full height for centering */
+  }
+  
+  .fileInput {
+    display: none; /* Hide the default input */
+  }
+  
+  .uploadButton {
+    display: inline-block;
+    background: linear-gradient(45deg, #6a0dad, #9b30ff); /* Gradient background */
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3); /* Add shadow for depth */
+  }
+  
+  .uploadButton:hover {
+    transform: translateY(-3px); /* Hover effect */
+    box-shadow: 0 8px 25px rgba(106, 13, 173, 0.5);
+    background: linear-gradient(45deg, #9b30ff, #6a0dad); /* Reverse gradient on hover */
+  }
+  
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .loadingContainer p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #6a0dad;
+  }
+  
